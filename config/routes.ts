@@ -43,6 +43,12 @@
     component: './TableList',
   },
   {
+    name: 'orgMg',
+    icon: 'table',
+    path: '/orgMg',
+    component: './OrgMg',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
