@@ -6,8 +6,15 @@ const OrgMg: React.FC = () => {
     return (
         <>
             <Row>
-                <Col className={Style.leftCon} span={9}>左侧</Col>
-                <Col className={Style.rightCon} span={15}>右侧</Col>
+                <Col className={Style.leftCon} span={10}>
+                    
+
+                    左侧
+
+
+
+                </Col>
+                <Col className={Style.rightCon} span={14}>右侧</Col>
             </Row>
         </>
     );
