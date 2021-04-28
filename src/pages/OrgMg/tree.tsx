@@ -1,4 +1,4 @@
-import {Tree, Input, Col, Row} from 'antd';
+import {Tree, Input, Col, Row, Button} from 'antd';
 import React from 'react';
 import './tree.less'
 
@@ -72,6 +72,7 @@ export default class SearchTree extends React.Component {
         expandedKeys: [],
         searchValue: '',
         autoExpandParent: true,
+        show:true
     };
 
     onExpand = expandedKeys => {
@@ -99,7 +100,14 @@ export default class SearchTree extends React.Component {
             autoExpandParent: true,
         });
     };
-
+    clicked(param,event){
+        let show = !show
+        this.setState({
+            show: show
+        });
+        console.log(param) //hello world
+        console.log(event.target.value) //按钮
+    };
     render() {
         const { searchValue, expandedKeys, autoExpandParent } = this.state;
         const loop = data =>
@@ -136,11 +144,13 @@ export default class SearchTree extends React.Component {
                     treeData={loop(gData1)}
                 />
                 {/*树操作菜单区域*/}
-                <div className="treeOperation">
+                <div className={`treeOperation ${this.state.show ? 'show' : 'hide'}`}>
                     <Row>
                         <Col span={3}>组织管理</Col>
                         <Col span={4}>中间按钮区域</Col>
-                        <Col span={2}>收起</Col>
+                        <Col span={2}>
+                            <Button onClick={this.clicked.bind(this,"hello world")}>收起</Button>
+                        </Col>
                     </Row>
                 </div>
             </div>
