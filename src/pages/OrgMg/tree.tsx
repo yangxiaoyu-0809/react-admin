@@ -1,5 +1,5 @@
-import { Tree, Input } from 'antd';
-import React, { useState, useRef } from 'react';
+import {Tree, Input, Col, Row} from 'antd';
+import React from 'react';
 import './tree.less'
 
 const { Search } = Input;
@@ -134,8 +134,15 @@ export default class SearchTree extends React.Component {
                     expandedKeys={expandedKeys}
                     autoExpandParent={autoExpandParent}
                     treeData={loop(gData1)}
-                    // treeData={gData1}
                 />
+                {/*树操作菜单区域*/}
+                <div className="treeOperation">
+                    <Row>
+                        <Col span={3}>组织管理</Col>
+                        <Col span={4}>中间按钮区域</Col>
+                        <Col span={2}>收起</Col>
+                    </Row>
+                </div>
             </div>
         );
     }
