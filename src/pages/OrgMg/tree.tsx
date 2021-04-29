@@ -101,9 +101,9 @@ export default class SearchTree extends React.Component {
         });
     };
     clicked(param,event){
-        let show = !show
+        let show = this.state.show
         this.setState({
-            show: show
+            show: !show
         });
         console.log(param) //hello world
         console.log(event.target.value) //按钮
@@ -147,7 +147,9 @@ export default class SearchTree extends React.Component {
                 <div className={`treeOperation ${this.state.show ? 'show' : 'hide'}`}>
                     <Row>
                         <Col span={3}>组织管理</Col>
-                        <Col span={4}>中间按钮区域</Col>
+                        {this.state.show ? (
+                            <Col style={{backgroundColor: '#999'}} span={18} className={``}>中间按钮区域</Col>
+                        ) : null}
                         <Col span={2}>
                             <Button onClick={this.clicked.bind(this,"hello world")}>收起</Button>
                         </Col>
